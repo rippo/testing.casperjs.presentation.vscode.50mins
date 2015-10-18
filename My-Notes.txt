@@ -1,0 +1,291 @@
+----------------------------------------------------
+1. DEMO 1
+----------------------------------------------------
+
+	Start IIS.BAT
+	Navigate to http://localhost:43504 and show home page ONLY
+	Create grab.js 
+	csp-pres-00-grab
+	
+	Run It
+	Show screen.jpg
+
+	On Grab Demo inside create
+
+	viewportSize: {
+		width: 960,
+		height: 600
+	}
+
+	Run it
+	Show screen.jpg
+
+	Slides
+	
+	
+	
+----------------------------------------------------
+ 2. TEST 01 - First Test
+----------------------------------------------------
+
+	Create test01.js in .\Tests\Test.Samples\test01.js
+	csp-pres-01-first-test
+
+	Run it 
+	Slides
+
+
+	
+----------------------------------------------------
+3. CSS Selector
+----------------------------------------------------
+
+	on web page show extension
+
+	ul > li:nth-child(2) > a
+	a[href='/home/about']
+	
+	Slides
+
+	
+	
+----------------------------------------------------
+4. Test 02 - Navigation Test
+----------------------------------------------------
+
+	Create test02.js in .\Tests\Test.Samples\test02.js
+	csp-pres-02-nav-test
+
+	Run it 
+	
+	Change code to show failures
+	Run it
+
+	Slides
+	
+	
+	
+----------------------------------------------------
+5. Test 03	- Fill in a Form
+----------------------------------------------------
+
+	Show contact form on browser
+	Create test03.js in .\Tests\Test.Samples\test03.js
+	csp-pres-03-form
+
+	Run it SEE FAILURES
+
+	Add in 
+        this.fillSelectors('form', {
+            "input[name='ContactName']": 'Richard Wilde'
+        }, true);
+	
+	Run it SEE FAILURES
+	
+	Add in to the text exists and the email address
+	csp-pres-03-form-02
+			The Email Address field is required
+			Email required is shown
+			Fill in dodgy email address
+
+	Run it SEE FAILURES
+	
+	Add in to the text exists and the email address
+	csp-pres-03-form-02
+			The Email Address field is not a valid e-mail address
+			Email validation message shown
+			Fill in correct email address
+
+	Run it SEE PASSES
+
+	Slides
+	
+
+
+----------------------------------------------------
+6. 	TEST 04 - Timings
+----------------------------------------------------
+
+	Show web page with modal window
+	Create test04.js in \Tests\Test.Samples\test04.js 
+	csp-pres-04-timings
+	
+	Run it SEE FAILURES
+	See timings.jpg
+	
+	change 100 to 200 on wait 
+	Run it SEE PASSES
+	See timings.jpg
+	
+	change 200 to 400 on wait 
+	Run it SEE PASSES
+	See timings.jpg	
+	
+	change to 
+	casper.waitUntilVisible("#myModal", function () {
+	Run it SEE PASSES
+	See timings.jpg	
+	
+	Add in the following options
+	casper.options.viewportSize = { width: 960, height: 600 };
+	Run it SEE FAILURES
+	See timings.jpg
+	
+	Slides
+	
+	
+
+----------------------------------------------------
+7. TEST 05 - Evaluate
+----------------------------------------------------
+
+	Show Web page with evaluate
+	Create test05.js in \Tests\Test.Samples\test05.js 
+	csp-pres-05-evaluate-01
+	
+	Run it SEE FAILURES, NO tests ran!
+	
+	csp-pres-05-evaluate-02
+		United Kingdom
+		Change XX to UK
+	Run it SEE FAILURES, as 1/2 tests ran!
+		
+	csp-pres-05-evaluate-02
+		Spain
+		Change XX to ES
+	Run it SEE PASSES
+	
+	Change code to see a failure
+	
+	Slides
+	
+	
+	
+----------------------------------------------------
+8. TEST 06	- Looping
+----------------------------------------------------
+
+	Show web page with wizard
+	Create test06.js in \Tests\Test.Samples\test06.js 
+	csp-pres-06-looping
+	
+	Talk through code
+	We have 51 page requests
+	Run it
+	
+	Run it again and show IIS tab whilst running
+	
+	Pretty fast!
+	
+	Slides
+
+
+
+----------------------------------------------------
+9. TEST 07	- Command Line Arguments
+----------------------------------------------------
+
+	Create test07.js in \Tests\Test.Samples\test06.js 
+	csp-pres-01-first-test
+	
+	change the http://localhost to
+	casper.cli.options.baseUrl
+	
+	Run it
+	
+	Slides
+
+
+
+----------------------------------------------------
+10. Test 08 - Events/Listeners
+----------------------------------------------------
+
+	Create test08.js in \Tests\Test.Samples\test06.js 
+	csp-pres-08-events-01-success
+	
+	Run it
+	Unremark the dump
+	
+	csp-pres-08-events-02-fail
+	
+	Run it
+	
+	move 2 failure tests  together, del jpgs
+	
+	Run it
+
+	Slides
+
+
+
+----------------------------------------------------
+11. Test 09 - Unit Testing
+----------------------------------------------------
+
+    **DIFFERENT FOLDER**
+
+	Create test09.js in \Tests\Test.Samples\unit-tests\test09.js 
+	csp-pres-09-calc
+	
+	Run it using
+    casperjs test --includes=../../casper.mvc/casper.mvc/scripts/calculator.js test09.js    
+	
+	Slides
+
+
+	
+----------------------------------------------------
+12. Finally
+----------------------------------------------------
+
+	Run	all tests in DIR
+	Good for segmenting areas of your tests
+	
+	Xunit
+	Good for say plumbing into TeamCity
+	
+	Change test02 to have failure
+	Fail-Fast
+	
+	Slides
+	
+	
+    
+----------------------------------------------------
+13. Page Object pattern
+----------------------------------------------------
+
+	Show site for account
+	login as test1@test.com, search a then b
+	login as test2@test.com, search a
+
+	Show app.ts
+	Show Typings folder
+
+	Show pages/Page.Login.ts
+	Show test/test.login.as.unknown.ts
+	
+	run test.login.as.unknown.js
+	
+	Show pages/Page.Account.ts
+	Show test/test.login.as.test1.ts
+	Show test/test.login.as.test2.ts
+	
+	run both tests
+	
+	Benefits of @code + typescript
+	Full intelli-sense for casper functions
+	Full intelli-sense for my own code
+	
+	run all tests
+
+
+
+----------------------------------------------------
+14. Page Object pattern no asserts in page objects
+----------------------------------------------------
+
+	show code
+	run it
+	

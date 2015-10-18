@@ -1,0 +1,32 @@
+﻿
+
+<div class="container">
+    <div class="row">
+        <h1>Calculator</h1>
+        <button class="btn btn-primary">Add 1 + 3</button>
+
+        <h2 id="result"></h2>
+
+    </div>
+</div>
+
+@section scripts
+{
+
+    <script src="~/Scripts/calculator.js"></script>
+    <script>
+
+        $(function () {
+            $('button').on("click", function () {
+
+                var c = new calculator();
+                var result = c.add(1, 3);
+
+                $('#result').html("1 + 3 is " + result);
+
+            });
+        });
+
+    </script>
+
+}

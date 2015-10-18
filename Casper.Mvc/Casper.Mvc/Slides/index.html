@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CasperJS - Hands On</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <style type="text/css">
+      @import url(./fonts/fonts.css);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+            
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 0.90em; }
+      .remark-slide-content {
+          /*padding: 0.5em 3em 0.5em 3em;*/
+          font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+  <textarea id="source">
+
+class: center, middle
+
+# Richard Wilde 
+## @rippo
+
+View slides at http://tinyurl.com/slides-casper
+
+---
+
+class: center, middle
+
+# Why test the UI? 
+## (end-to-end testing)
+
+
+# What did I try? 
+## Selenuim, Web Driver, Coypu
+
+---
+
+# What is PhantomJS?
+
+PhantomJS is a headless WebKit scriptable with a JavaScript API. It has fast and native support for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.
+
+* Full web stack
+* No browser required
+
+# What is CasperJS?
+
+CasperJS is a navigation scripting & testing utility written in Javascript that depends on PhantomJS. CasperJS eases the process of defining a full navigation scenario and provides useful high-level functions, methods & syntactic sugar for doing common tasks such as:
+
+* Testing your ui
+* Screen scraping including screen grabs
+
+---
+
+# Agenda
+
+1. Getting setup
+
+2. Screen grab demo
+
+3. Testing scenarios
+        
+4. Review Page Object Pattern (with typescript and @code)
+
+---
+
+# Getting setup
+
+1. You will need node http://nodejs.org/
+
+2. Open CMD prompt and install CasperJS (it bundles PhantomJs)
+````DOS
+$ npm install casperjs -g
+````
+````DOS
+$ notepad %APPDATA%\npm\casperjs.cmd
+````
+Goto http://tinyurl.com/casper-cmd and paste in the text and save
+
+4. Check casper is installed, it should return `1.1.0-beta3`.
+````DOS
+$ casperjs --version
+````
+5. To remove the unsafe js warning, downgrade phantomjs 1.9.8 to 1.9.7. Copy phantom.exe from the GIT root folder into the folder below 
+````DOS
+$ explorer %APPDATA%\npm\node_modules\casperjs\node_modules\phantomjs\lib\phantom         
+````
+
+---
+
+#Screen Grab
+
+* CasperJS is not just a testing tool it is also great at screen scraping!
+
+* It can also take screen shots at different resolutions         
+        
+##Demo  
+---
+
+#How I found this useful...
+---
+
+#Test 01 - Our first test
+
+* Look at MVC Site        
+
+##Demo        
+---
+
+#Test 01 - Our first test
+
+## What did we just do?##
+
+* we do not need to create a new casper instance (allows us to chain tests)
+````JavaScript
+casper.test.begin('Home Page Tests', 3, function (test) {
+````
+* when the page loaded, we asserted the title was `Home - CasperJS Mvc`
+
+* we then asserted that two pieces of text existed
+
+* we ran the tests and informed CasperJS we were done 
+````JavaScript
+    casper.run(function () {
+        test.done();
+    });
+````
+---
+
+#Test 02 - Navigation test
+
+## TIP for Chrome users
+
+###CSS Selector Tester
+
+Test your css selector by using this quick script
+
+[Css Selector Tester](https://chrome.google.com/webstore/detail/css-selector-tester/bbklnaodgoocmcdejoalmbjihhdkbfon)
+
+We can use the css selector to find DOM elements 
+
+````css
+ul > li:nth-child(2) > a
+````
+
+---
+
+
+#Test 02 - Navigation test
+
+##Demo
+
+---
+
+#Test 03 - Fill in a form
+
+##Demo
+
+#### Spoiler alert...
+
+````JavaScript
+// assert a selector exists
+test.assertExists('form[action="/home/contact"]');
+
+// fill in a form, note use fillSelectors NOT deprecated fill 
+this.fillSelectors('form', {
+    "input[name='ContactName']": 'Richard Wilde'
+}, true);
+
+// waits for a selector after a button has been clicked
+casper.waitForSelector('#EmailAddress', ...
+
+````
+
+---
+
+#Test 04 - UI Timings
+
+##DEMO
+
+#### Spoiler alert...
+
+````JavaScript
+// does a selector exist?
+test.assertExists("button#btnModal", "Launch button is shown");
+
+// lets wait for some milliseconds...
+casper.wait(10, ...
+
+// is a selector visible?
+test.assertVisible("#myModal");
+````
+
+---
+
+#Test 05 - Evaluate
+
+##Demo        
+
+#### Spoiler alert...
+
+````JavaScript
+// run some javascript/jquery code
+casper.thenEvaluate(...
+````
+---
+
+#Test 06 - Looping
+
+* set up an array of 25 integers
+* loop through array
+   * assert title is `Wizard Step: **i** - CasperJS Mvc  
+   * submit form without filling in field
+   * assert validation message is shown
+   * submit form with any answer
+* assert finished page is shown
+    
+####SHOW SITE IN BROWSER!        
+
+##Demo        
+
+#### Spoiler alert...
+
+````JavaScript
+//  should the loop be inside a casper function?
+casper.then ...
+ loop.forEach(function (item) ...
+
+````
+
+We should get 51 passing tests
+
+
+---
+        
+#Test 07 - Command Line Args
+        
+##Demo        
+
+#### Spoiler alert...
+````DOS
+$ casperjs test --baseUrl="http://localhost:43504 test07.js
+````
+
+````JavaScript
+casper.cli.options.baseUrl
+````
+        
+---
+        
+#Test 08 - Events and Listeners
+        
+##Demo        
+    
+#### Spoiler alert...
+````JavaScript
+    casper.test.on("success", function(success) {
+        successes.push(success);
+    });
+````        
+---
+        
+#Test 09 - Unit Testing
+        
+##Demo        
+    
+````DOS
+casperjs test --includes=../../casper.mvc/casper.mvc/scripts/calculator.js test09.js
+````
+---
+        
+#and finally...
+
+##Run all tests in a directory (includes sub dirs)
+````DOS
+$ casperjs test --baseUrl="http://localhost:43504" .
+````
+
+##XUnit output (good for TeamCity etc)
+````DOS
+$ casperjs test --xunit=1.xml --baseUrl="http://localhost:43504" .
+````
+
+##Fail fast
+````DOS
+$ casperjs test --fail-fast --baseUrl="http://localhost:43504" .
+````
+---
+        
+#Page Object Pattern
+.center[![](/slides/Page.Object.png)]
+---
+
+#Check out these useful links
+        
+* ####Casper Docs
+   - API documentation http://docs.casperjs.org/en/latest/modules/index.html
+
+* ####CSS Selector Tester (chrome extension)
+   - Test your css selector by using this quick tool
+   - [Css Selector Tester](https://chrome.google.com/webstore/detail/css-selector-tester/bbklnaodgoocmcdejoalmbjihhdkbfon)
+
+* ####CasperJS Page Object Pattern
+  - http://jsebfranck.blogspot.co.uk/2014/03/page-object-pattern-with-casperjs.html
+  - http://martinfowler.com/bliki/PageObject.html
+  - https://code.google.com/p/selenium/wiki/PageObjects
+      
+---
+
+class: center, middle
+
+#Thanks
+
+##Hope you found it useful!
+
+Ask me questions on twitter @rippo
+    </textarea>
+    <script src="remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({  highlightStyle: 'monokai'});
+    </script>
+  </body>
+</html>
