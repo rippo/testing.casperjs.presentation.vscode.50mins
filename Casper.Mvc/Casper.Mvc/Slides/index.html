@@ -28,7 +28,7 @@ class: center, middle
 # Richard Wilde 
 ## @rippo
 
-View slides at http://tinyurl.com/slides-casper
+View slides at TODO
 
 ---
 
@@ -42,7 +42,6 @@ class: center, middle
 ## Selenuim, Web Driver, Coypu
 
 ---
-
 # What is PhantomJS?
 
 PhantomJS is a headless WebKit scriptable with a JavaScript API. It has fast and native support for various web standards: DOM handling, CSS selector, JSON, Canvas, and SVG.
@@ -59,6 +58,12 @@ CasperJS is a navigation scripting & testing utility written in Javascript that 
 
 ---
 
+# Wouldn't it be nice...
+## to be able to UI test your code changes before you check into source!
+
+.center[![](/slides/benice.png)]
+
+---
 # Agenda
 
 1. Getting setup
@@ -104,9 +109,6 @@ $ explorer %APPDATA%\npm\node_modules\casperjs\node_modules\phantomjs\lib\phanto
 ##Demo  
 ---
 
-#How I found this useful...
----
-
 #Test 01 - Our first test
 
 * Look at MVC Site        
@@ -136,18 +138,14 @@ casper.test.begin('Home Page Tests', 3, function (test) {
 
 #Test 02 - Navigation test
 
-## TIP for Chrome users
-
-###CSS Selector Tester
-
-Test your css selector by using this quick script
-
-[Css Selector Tester](https://chrome.google.com/webstore/detail/css-selector-tester/bbklnaodgoocmcdejoalmbjihhdkbfon)
-
-We can use the css selector to find DOM elements 
-
 ````css
 ul > li:nth-child(2) > a
+````
+
+OR
+
+````css
+a[href='/home/about']
 ````
 
 ---
@@ -180,27 +178,7 @@ casper.waitForSelector('#EmailAddress', ...
 ````
 
 ---
-
-#Test 04 - UI Timings
-
-##DEMO
-
-#### Spoiler alert...
-
-````JavaScript
-// does a selector exist?
-test.assertExists("button#btnModal", "Launch button is shown");
-
-// lets wait for some milliseconds...
-casper.wait(10, ...
-
-// is a selector visible?
-test.assertVisible("#myModal");
-````
-
----
-
-#Test 05 - Evaluate
+#Test 04 - Evaluate
 
 ##Demo        
 
@@ -211,36 +189,8 @@ test.assertVisible("#myModal");
 casper.thenEvaluate(...
 ````
 ---
-
-#Test 06 - Looping
-
-* set up an array of 25 integers
-* loop through array
-   * assert title is `Wizard Step: **i** - CasperJS Mvc  
-   * submit form without filling in field
-   * assert validation message is shown
-   * submit form with any answer
-* assert finished page is shown
-    
-####SHOW SITE IN BROWSER!        
-
-##Demo        
-
-#### Spoiler alert...
-
-````JavaScript
-//  should the loop be inside a casper function?
-casper.then ...
- loop.forEach(function (item) ...
-
-````
-
-We should get 51 passing tests
-
-
----
         
-#Test 07 - Command Line Args
+#Test 05 - Command Line Args
         
 ##Demo        
 
@@ -255,28 +205,7 @@ casper.cli.options.baseUrl
         
 ---
         
-#Test 08 - Events and Listeners
-        
-##Demo        
-    
-#### Spoiler alert...
-````JavaScript
-    casper.test.on("success", function(success) {
-        successes.push(success);
-    });
-````        
----
-        
-#Test 09 - Unit Testing
-        
-##Demo        
-    
-````DOS
-casperjs test --includes=../../casper.mvc/casper.mvc/scripts/calculator.js test09.js
-````
----
-        
-#and finally...
+#some useful pointers...
 
 ##Run all tests in a directory (includes sub dirs)
 ````DOS
