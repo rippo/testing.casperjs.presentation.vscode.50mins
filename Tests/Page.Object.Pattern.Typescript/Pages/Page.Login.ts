@@ -19,13 +19,13 @@ class LoginPage implements ILoginPage {
     //I prefer this way as it seems to be easier to maintain and easier to read 
     //  what the test pages are doing.
     checkWeAreOnTheLoginPage = () => {
-        casper.waitForSelector(this.usernameLocator, function () {
+        casper.waitForSelector(this.usernameLocator, function() {
             casper.test.assertUrlMatch('account', 'then check we are currently on the login page');
             casper.test.assertExists('form', 'then check that the login page form has been found');
         });
     };
 
-    fillInThePassword = (password : string) => {
+    fillInThePassword = (password: string) => {
         casper.waitForSelector(this.passwordLocator, () => {
             var params = {};
             params[this.passwordLocator] = password;
@@ -35,8 +35,8 @@ class LoginPage implements ILoginPage {
         });
     };
 
-    fillInTheUsername = (username : string) => {
-        casper.waitForSelector(this.usernameLocator,  () => {
+    fillInTheUsername = (username: string) => {
+        casper.waitForSelector(this.usernameLocator, () => {
             var params = {};
             params[this.usernameLocator] = username;
 
@@ -64,7 +64,7 @@ class LoginPage implements ILoginPage {
         });
     }
 
-    fullLogin = (username : string, password : string) => {
+    fullLogin = (username: string, password: string) => {
         this.startOnLoginPage();
         this.checkWeAreOnTheLoginPage();
         this.fillInTheUsername(username);
@@ -75,12 +75,12 @@ class LoginPage implements ILoginPage {
 }
 
 interface ILoginPage {
-    startOnLoginPage:Function;
-    fullLogin:Function;
-    checkWeAreOnTheLoginPage:Function;
-    fillInTheUsername:Function;
-    fillInThePassword:Function;
-    submitForm:Function;
-    checkUsernameValidationIsShown:Function;
-    checkPasswordValidationIsShown:Function;
+    startOnLoginPage: Function;
+    fullLogin: Function;
+    checkWeAreOnTheLoginPage: Function;
+    fillInTheUsername: Function;
+    fillInThePassword: Function;
+    submitForm: Function;
+    checkUsernameValidationIsShown: Function;
+    checkPasswordValidationIsShown: Function;
 }

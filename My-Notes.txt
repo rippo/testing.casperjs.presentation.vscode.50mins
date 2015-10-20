@@ -35,22 +35,8 @@
 	Slides
 
 
-	
 ----------------------------------------------------
-3. CSS Selector
-----------------------------------------------------
-
-	on web page show extension
-
-	ul > li:nth-child(2) > a
-	a[href='/home/about']
-	
-	Slides
-
-	
-	
-----------------------------------------------------
-4. Test 02 - Navigation Test
+3. Test 02 - Navigation Test
 ----------------------------------------------------
 
 	Create test02.js in .\Tests\Test.Samples\test02.js
@@ -66,7 +52,7 @@
 	
 	
 ----------------------------------------------------
-5. Test 03	- Fill in a Form
+4. Test 03	- Fill in a Form
 ----------------------------------------------------
 
 	Show contact form on browser
@@ -101,56 +87,22 @@
 	Slides
 	
 
-
 ----------------------------------------------------
-6. 	TEST 04 - Timings
-----------------------------------------------------
-
-	Show web page with modal window
-	Create test04.js in \Tests\Test.Samples\test04.js 
-	csp-pres-04-timings
-	
-	Run it SEE FAILURES
-	See timings.jpg
-	
-	change 100 to 200 on wait 
-	Run it SEE PASSES
-	See timings.jpg
-	
-	change 200 to 400 on wait 
-	Run it SEE PASSES
-	See timings.jpg	
-	
-	change to 
-	casper.waitUntilVisible("#myModal", function () {
-	Run it SEE PASSES
-	See timings.jpg	
-	
-	Add in the following options
-	casper.options.viewportSize = { width: 960, height: 600 };
-	Run it SEE FAILURES
-	See timings.jpg
-	
-	Slides
-	
-	
-
-----------------------------------------------------
-7. TEST 05 - Evaluate
+5. TEST 04 - Evaluate
 ----------------------------------------------------
 
 	Show Web page with evaluate
-	Create test05.js in \Tests\Test.Samples\test05.js 
-	csp-pres-05-evaluate-01
+	Create test04.js in \Tests\Test.Samples\test04.js 
+	csp-pres-04-evaluate-01
 	
 	Run it SEE FAILURES, NO tests ran!
 	
-	csp-pres-05-evaluate-02
+	csp-pres-04-evaluate-02
 		United Kingdom
 		Change XX to UK
 	Run it SEE FAILURES, as 1/2 tests ran!
 		
-	csp-pres-05-evaluate-02
+	csp-pres-04-evaluate-02
 		Spain
 		Change XX to ES
 	Run it SEE PASSES
@@ -159,33 +111,11 @@
 	
 	Slides
 	
-	
-	
 ----------------------------------------------------
-8. TEST 06	- Looping
+6. TEST 05	- Command Line Arguments
 ----------------------------------------------------
 
-	Show web page with wizard
-	Create test06.js in \Tests\Test.Samples\test06.js 
-	csp-pres-06-looping
-	
-	Talk through code
-	We have 51 page requests
-	Run it
-	
-	Run it again and show IIS tab whilst running
-	
-	Pretty fast!
-	
-	Slides
-
-
-
-----------------------------------------------------
-9. TEST 07	- Command Line Arguments
-----------------------------------------------------
-
-	Create test07.js in \Tests\Test.Samples\test06.js 
+	Create test05.js in \Tests\Test.Samples\test05.js 
 	csp-pres-01-first-test
 	
 	change the http://localhost to
@@ -194,49 +124,10 @@
 	Run it
 	
 	Slides
-
-
-
-----------------------------------------------------
-10. Test 08 - Events/Listeners
-----------------------------------------------------
-
-	Create test08.js in \Tests\Test.Samples\test06.js 
-	csp-pres-08-events-01-success
 	
-	Run it
-	Unremark the dump
-	
-	csp-pres-08-events-02-fail
-	
-	Run it
-	
-	move 2 failure tests  together, del jpgs
-	
-	Run it
-
-	Slides
-
-
-
-----------------------------------------------------
-11. Test 09 - Unit Testing
-----------------------------------------------------
-
-    **DIFFERENT FOLDER**
-
-	Create test09.js in \Tests\Test.Samples\unit-tests\test09.js 
-	csp-pres-09-calc
-	
-	Run it using
-    casperjs test --includes=../../casper.mvc/casper.mvc/scripts/calculator.js test09.js    
-	
-	Slides
-
-
 	
 ----------------------------------------------------
-12. Finally
+7. Finally
 ----------------------------------------------------
 
 	Run	all tests in DIR
@@ -280,12 +171,3 @@
 	
 	run all tests
 
-
-
-----------------------------------------------------
-14. Page Object pattern no asserts in page objects
-----------------------------------------------------
-
-	show code
-	run it
-	
