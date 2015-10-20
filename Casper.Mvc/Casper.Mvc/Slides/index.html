@@ -28,8 +28,6 @@ class: center, middle
 # Richard Wilde 
 ## @rippo
 
-View slides at TODO
-
 ---
 
 class: center, middle
@@ -39,7 +37,7 @@ class: center, middle
 
 
 # What did I try? 
-## Selenuim, Web Driver, Coypu
+## Selenuim, Web Driver, Coypu and now CasperJS
 
 ---
 # What is PhantomJS?
@@ -135,8 +133,9 @@ casper.test.begin('Home Page Tests', 3, function (test) {
     });
 ````
 ---
-
 #Test 02 - Navigation test
+
+##Demo
 
 ````css
 ul > li:nth-child(2) > a
@@ -147,13 +146,6 @@ OR
 ````css
 a[href='/home/about']
 ````
-
----
-
-
-#Test 02 - Navigation test
-
-##Demo
 
 ---
 
@@ -231,10 +223,6 @@ $ casperjs test --fail-fast --baseUrl="http://localhost:43504" .
         
 * ####Casper Docs
    - API documentation http://docs.casperjs.org/en/latest/modules/index.html
-
-* ####CSS Selector Tester (chrome extension)
-   - Test your css selector by using this quick tool
-   - [Css Selector Tester](https://chrome.google.com/webstore/detail/css-selector-tester/bbklnaodgoocmcdejoalmbjihhdkbfon)
 
 * ####CasperJS Page Object Pattern
   - http://jsebfranck.blogspot.co.uk/2014/03/page-object-pattern-with-casperjs.html
