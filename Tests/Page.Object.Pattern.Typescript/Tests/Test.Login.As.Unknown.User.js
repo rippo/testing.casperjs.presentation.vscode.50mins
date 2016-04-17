@@ -1,7 +1,7 @@
 //Simply injects my page object into the DOM
 //  so it is available to this test page
 phantom.page.injectJs('../Pages/Page.Login.js');
-casper.test.begin('Scenario: When I try to login as an unknown user', function (test) {
+casper.test.begin('Scenario: When I try to login as an unknown user', 12, function (test) {
     var loginPage = new LoginPage();
     loginPage.startOnLoginPage();
     loginPage.checkWeAreOnTheLoginPage();

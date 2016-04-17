@@ -2,7 +2,7 @@
 //  so it is available to this test page
 phantom.page.injectJs('../Pages/Page.Login.js');
 
-casper.test.begin('Scenario: When I try to login as an unknown user', function (test : Tester) {
+casper.test.begin('Scenario: When I try to login as an unknown user', 12, function (test : Tester) {
 
     var loginPage : LoginPage = new LoginPage();
     

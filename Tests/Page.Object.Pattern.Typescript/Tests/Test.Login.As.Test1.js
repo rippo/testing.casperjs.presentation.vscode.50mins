@@ -1,6 +1,6 @@
 phantom.page.injectJs('../Pages/Page.Login.js');
 phantom.page.injectJs('../Pages/Page.Account.js');
-casper.test.begin('Scenario: When I login as user test1@test.com and perform an account search', function (test) {
+casper.test.begin('Scenario: When I login as user test1@test.com and perform an account search', 17, function (test) {
     var loginPage = new LoginPage();
     var searchPage = new SearchPage();
     loginPage.fullLogin('test1@test.com', '12345');
