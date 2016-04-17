@@ -12,10 +12,7 @@
 
 	On Grab Demo inside create
 
-	viewportSize: {
-		width: 960,
-		height: 600
-	}
+	{ viewportSize: { width: 960, height: 600 }	}
 
 	Run it
 	Show screen.jpg
@@ -69,18 +66,12 @@
 	Run it SEE FAILURES
 	
 	Add in to the text exists and the email address
-	csp-pres-03-form-02
-			The Email Address field is required
-			Email required is shown
-			Fill in dodgy email address
+	csp-pres-03-form-02-a
 
 	Run it SEE FAILURES
 	
 	Add in to the text exists and the email address
-	csp-pres-03-form-02
-			The Email Address field is not a valid e-mail address
-			Email validation message shown
-			Fill in correct email address
+	csp-pres-03-form-02-b
 
 	Run it SEE PASSES
 
@@ -97,7 +88,7 @@
 	
 	Run it SEE FAILURES, NO tests ran!
 	
-	csp-pres-04-evaluate-02
+	csp-pres-04-evaluate-02-a
 		United Kingdom
 		Change XX to UK
 	Run it SEE FAILURES, as 1/2 tests ran!
@@ -127,7 +118,7 @@
 	
 	
 ----------------------------------------------------
-7. Finally
+7. Some useful pointers
 ----------------------------------------------------
 
 	Run	all tests in DIR

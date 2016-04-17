@@ -90,17 +90,30 @@
 		"description" : "Casper Presentation 03 Form Test - part 01"
 	},
 	
-	"csp-pres-03-form-02" : {
-		"prefix" : "csp-pres-03-form-02",
+	"csp-pres-03-form-02a" : {
+		"prefix" : "csp-pres-03-form-02a",
 		"body" : [
 			"casper.waitForSelector(\"#EmailAddress\", function() {",
-			"    test.assertTextExists(\"\", \"\");",
+			"    test.assertTextExists(\"The Email Address field is required\", \"Email required is shown\");",
 			"    this.fillSelectors(\"form\", {",
-			"       \"input[name='EmailAddress']\": ''",
+			"       \"input[name='EmailAddress']\": 'INVALID@EMAIL'",
 			"    }, true);",
 			"});"
 		],
-		"description" : "Casper Presentation 03 Form Fill - part 02"
+		"description" : "Casper Presentation 03 Form Fill - part 02-a"
+	},
+
+	"csp-pres-03-form-02b" : {
+		"prefix" : "csp-pres-03-form-02b",
+		"body" : [
+			"casper.waitForSelector(\"#EmailAddress\", function() {",
+			"    test.assertTextExists(\"The Email Address field is not a valid e-mail address\", \"Email validation message shown\");",
+			"    this.fillSelectors(\"form\", {",
+			"       \"input[name='EmailAddress']\": 'richard@wildesoft.net'",
+			"    }, true);",
+			"});"
+		],
+		"description" : "Casper Presentation 03 Form Fill - part 02-a"
 	},
 	
 	"csp-pres-05-evaluate-01": {
@@ -133,18 +146,6 @@
 		],
 		"description": "Casper Presentation 04 Evaluate 02"
 	}
-
-	/*"": {
-		"prefix": "",
-		"body": [],
-		"description": "Casper Presentation 0"
-	},/*
-
-	/*"": {
-		"prefix": "",
-		"body": [],
-		"description": "Casper Presentation 0"
-	},/*
 	
 }
 

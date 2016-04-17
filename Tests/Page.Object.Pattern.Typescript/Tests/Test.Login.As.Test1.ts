@@ -11,7 +11,7 @@ casper.test.begin('Scenario: When I login as user test1@test.com and perform an 
     searchPage.checkWeAreOnTheSearchPage();
     searchPage.submitForm();
     searchPage.checkValidationMesaageIsShown();
-
+    
     searchPage.fillInTheSearchBox("a");
     searchPage.submitForm();
     searchPage.checkNumberResultsShown(3);

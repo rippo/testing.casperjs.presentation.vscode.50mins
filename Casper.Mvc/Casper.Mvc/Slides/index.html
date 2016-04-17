@@ -13,7 +13,7 @@
         font-weight: normal;
       }
             
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 0.90em; }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 0.85em; }
       .remark-slide-content {
           /*padding: 0.5em 3em 0.5em 3em;*/
           font-size: 18px;
@@ -81,20 +81,23 @@ CasperJS is a navigation scripting & testing utility written in Javascript that 
 2. Open CMD prompt and install CasperJS (it bundles PhantomJs)
 ````DOS
 $ npm install casperjs -g
+$ npm install phantomjs -g
 ````
+Edit the following file
 ````DOS
 $ notepad %APPDATA%\npm\casperjs.cmd
 ````
-Goto http://tinyurl.com/casper-cmd and paste in the text and save
-
-4. Check casper is installed, it should return `1.1.0-beta3`.
+4. Check casper  and phantom are  installed, it should return `1.1.0-beta5` and `2.1.1`
 ````DOS
 $ casperjs --version
+$ phantomjs --version
 ````
-5. To remove the unsafe js warning, downgrade phantomjs 1.9.8 to 1.9.7. Copy phantom.exe from the GIT root folder into the folder below 
+5. To remove dependancy on Python and to use the latest version of Phantom 
 ````DOS
-$ explorer %APPDATA%\npm\node_modules\casperjs\node_modules\phantomjs\lib\phantom         
-````
+@ECHO OFF
+CLS
+SET PHANTOMJS_EXECUTABLE=%APPDATA%\npm\node_modules\phantomjs\lib\phantom\bin\phantomjs.exe
+%~dp0\node_modules\casperjs\bin\casperjs %*````
 
 ---
 
@@ -188,7 +191,7 @@ casper.thenEvaluate(...
 
 #### Spoiler alert...
 ````DOS
-$ casperjs test --baseUrl="http://localhost:43504 test07.js
+$ casperjs test --baseUrl="http://localhost:43504 test05.js
 ````
 
 ````JavaScript
