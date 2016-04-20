@@ -87,20 +87,19 @@ Edit the following file
 ````DOS
 $ notepad %APPDATA%\npm\casperjs.cmd
 ````
+3. To remove dependancy on Python and to use the latest version of Phantom
+````DOS
+@ECHO OFF
+CLS
+SET PHANTOMJS_EXECUTABLE=%APPDATA%\npm\node_modules\phantomjs\lib\phantom\bin\phantomjs.exe
+%~dp0\node_modules\casperjs\bin\casperjs %*
+````
 4. Check casper  and phantom are  installed, it should return `1.1.0-beta5` and `2.1.1`
 ````DOS
 $ casperjs --version
 $ phantomjs --version
 ````
-5. To remove dependancy on Python and to use the latest version of Phantom 
-````DOS
-@ECHO OFF
-CLS
-SET PHANTOMJS_EXECUTABLE=%APPDATA%\npm\node_modules\phantomjs\lib\phantom\bin\phantomjs.exe
-%~dp0\node_modules\casperjs\bin\casperjs %*````
-
 ---
-
 #Screen Grab
 
 * CasperJS is not just a testing tool it is also great at screen scraping!
@@ -230,7 +229,7 @@ $ casperjs test --fail-fast --baseUrl="http://localhost:43504" .
 * ####CasperJS Page Object Pattern
   - http://jsebfranck.blogspot.co.uk/2014/03/page-object-pattern-with-casperjs.html
   - http://martinfowler.com/bliki/PageObject.html
-  - https://code.google.com/p/selenium/wiki/PageObjects
+  - https://github.com/SeleniumHQ/selenium/wiki/PageObjects
       
 ---
 
