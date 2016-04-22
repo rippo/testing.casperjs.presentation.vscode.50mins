@@ -1,4 +1,4 @@
-casper.test.begin('Contact Page', 5, function (test) {
+casper.test.begin("Contact Page", 5, function (test) {
 
     casper.start("http://localhost:43504/home/contact", function () {
         test.assertTitle("Contact - CasperJS Mvc", "Page title matches 'Contact - CasperJS Mvc'");
@@ -6,24 +6,24 @@ casper.test.begin('Contact Page', 5, function (test) {
 
         //FILL FORM
         this.fillSelectors('form', {
-            "input[name='ContactName']" : "Richard Wilde"
+            "input[name='ContactName']": 'Richard Wilde'
         }, true);
 
     });
-    
+
     //FILL FORM WITH INVALID EMAIL
-    casper.waitForSelector('#EmailAddress', function() {
+    casper.waitForSelector("#EmailAddress", function() {
         test.assertTextExists("The Email Address field is required", "Email required is shown");
-        this.fillSelectors('form', {
-            "input[name='EmailAddress']": 'qwert'
+        this.fillSelectors("form", {
+           "input[name='EmailAddress']": 'INVALID@EMAIL'
         }, true);
     });
-    
+
     //FILL FORM WITH VALID EMAIL
-    casper.waitForSelector('#EmailAddress', function() {
+    casper.waitForSelector("#EmailAddress", function() {
         test.assertTextExists("The Email Address field is not a valid e-mail address", "Email validation message shown");
-        this.fillSelectors('form', {
-            "input[name='EmailAddress']": 'richard@wildesoft.net'
+        this.fillSelectors("form", {
+           "input[name='EmailAddress']": 'richard@wildesoft.net'
         }, true);
     });
 
