@@ -41,6 +41,8 @@
 	"csp-pres-02-nav-test" : {
 		"prefix" : "csp-pres-02-nav-test",
 		"body" : [
+			"casper.options.viewportSize = { width:768, height:600 }",
+			"",
 	        "casper.test.begin('Navigation test', 4, function (test) {",
 	        "",
 	        "    casper.start(\"http://localhost:43504\", function () {",

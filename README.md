@@ -1,11 +1,11 @@
 CasperJs Testing
 ================
 
- CasperJs testing 90 minute presentation
+ CasperJs testing 50 minute presentation
 
 View the slides at:-
 
-https://cdn.rawgit.com/rippo/testing.casperjs.presentation.vscode.50mins/master/Casper.Mvc/Casper.Mvc/Slides/index.html#1
+https://cdn.rawgit.com/rippo/testing.casperjs.presentation.vscode.50mins/master/Casper.Mvc/Casper.Mvc/Slides/index.html
 
 To install (use node npm):-
 ````
