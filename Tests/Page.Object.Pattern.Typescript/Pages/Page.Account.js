@@ -24,7 +24,7 @@ var SearchPage = (function () {
                 casper.click(_this.submitButtonLocator);
             });
         };
-        this.checkValidationMesaageIsShown = function () {
+        this.checkValidationMessageIsShown = function () {
             casper.waitForSelector(_this.queryControlLocator, function () {
                 casper.test.assertTextExists('Enter a search term', 'then check the search term required message is shown');
             });

@@ -6,7 +6,7 @@ casper.test.begin('Scenario: When I login as user test1@test.com and perform an 
     loginPage.fullLogin('test1@test.com', '12345');
     searchPage.checkWeAreOnTheSearchPage();
     searchPage.submitForm();
-    searchPage.checkValidationMesaageIsShown();
+    searchPage.checkValidationMessageIsShown();
     searchPage.fillInTheSearchBox("a");
     searchPage.submitForm();
     searchPage.checkNumberResultsShown(3);

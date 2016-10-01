@@ -16,7 +16,7 @@ class SearchPage implements ISearchPage {
         casper.then(() => {
             var params = { };
             params[this.queryControlLocator] = query;
-            
+
             casper.fillSelectors('form', params, false);
             casper.test.assertExists(this.queryControlLocator, "then fill in the search box with '" + query + "'");
         });
@@ -29,7 +29,7 @@ class SearchPage implements ISearchPage {
         });
     };
 
-    checkValidationMesaageIsShown = () => {
+    checkValidationMessageIsShown = () => {
         casper.waitForSelector(this.queryControlLocator, () => {
             casper.test.assertTextExists('Enter a search term', 'then check the search term required message is shown');
         });
@@ -48,6 +48,6 @@ interface ISearchPage {
     checkWeAreOnTheSearchPage : Function;
     fillInTheSearchBox : Function;
     submitForm : Function;
-    checkValidationMesaageIsShown : Function;
+    checkValidationMessageIsShown : Function;
     checkNumberResultsShown : Function;
 }

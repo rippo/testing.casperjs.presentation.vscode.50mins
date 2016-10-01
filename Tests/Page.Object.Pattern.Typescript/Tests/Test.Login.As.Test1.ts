@@ -4,14 +4,14 @@ phantom.page.injectJs('../Pages/Page.Account.js');
 casper.test.begin('Scenario: When I login as user test1@test.com and perform an account search', 17, function (test: Tester) {
 
     var loginPage : LoginPage = new LoginPage();
-    var searchPage : SearchPage= new SearchPage();
+    var searchPage : SearchPage = new SearchPage();
 
     loginPage.fullLogin('test1@test.com', '12345');
 
     searchPage.checkWeAreOnTheSearchPage();
     searchPage.submitForm();
-    searchPage.checkValidationMesaageIsShown();
-    
+    searchPage.checkValidationMessageIsShown();
+
     searchPage.fillInTheSearchBox("a");
     searchPage.submitForm();
     searchPage.checkNumberResultsShown(3);
