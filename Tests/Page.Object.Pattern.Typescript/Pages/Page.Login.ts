@@ -19,6 +19,9 @@ class LoginPage implements ILoginPage {
     // include assertions themselves, or just provide data for test scripts
     // to do the assertions. I prefer this way as it seems to be easier to
     // maintain and easier to read what the test pages are doing.
+
+    //Tell Don’t Ask vs Single Responsibility Principle
+    //http://blog.thepete.net/blog/2013/09/13/assertions-in-page-objects/
     checkWeAreOnTheLoginPage = () => {
         casper.waitForSelector(this.usernameLocator, function() {
             casper.test.assertUrlMatch('account', 'then check we are currently on the login page');
