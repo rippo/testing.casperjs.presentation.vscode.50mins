@@ -83,7 +83,7 @@
 			"    casper.waitForUrl(\"/home/thanks\", function () {",
 			"        test.assertTextExists(\"Thanks\", \"Thanks H1 header is shown\");",
 			"    }, function() {",
-			"	   this.capture('fail.jpg');",
+			"        this.capture('fail.jpg');",
 			"    }, 1000);",
 			"",
 			"    casper.run(function () {",

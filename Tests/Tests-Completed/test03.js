@@ -6,7 +6,7 @@ casper.test.begin("Contact Page", 5, function (test) {
 
         //FILL FORM
         this.fillSelectors('form', {
-            "input[name='ContactName']": 'Richard Wilde'
+           "input[name='ContactName']": 'Richard Wilde'
         }, true);
 
     });
@@ -29,7 +29,9 @@ casper.test.begin("Contact Page", 5, function (test) {
 
     casper.waitForUrl("/home/thanks", function () {
         test.assertTextExists("Thanks", "Thanks H1 header is shown");
-    }, null, 1000);
+    }, function() {
+        this.capture('fail.jpg');
+    }, 1000);
 
     casper.run(function () {
         test.done();
