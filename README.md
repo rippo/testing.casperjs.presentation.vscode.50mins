@@ -5,12 +5,16 @@ CasperJs Testing
 
 View the slides at:-
 
-https://cdn.rawgit.com/rippo/testing.casperjs.presentation.vscode.50mins/master/Casper.Mvc/Casper.Mvc/Slides/index.html
+https://cdn.rawgit.com/rippo/testing.casperjs.presentation.vscode.50mins/master/Casper.Mvc/Casper.Mvc/Slides/index.html#1
+
+
+Download phantomjs from http://phantomjs.org/download.html
+(copy it to %APPDATA%\npm)
+
 
 To install (use node npm):-
 ````
 $ npm install casperjs -g
-$ npm install phantomjs -g
 ````
 Edit the following file:-
 ````
@@ -20,6 +24,6 @@ and paste the following code to remove the dependancy on Python and to use the l
 ````
 @ECHO OFF
 CLS
-SET PHANTOMJS_EXECUTABLE=%APPDATA%\npm\node_modules\phantomjs\lib\phantom\bin\phantomjs.exe
+SET PHANTOMJS_EXECUTABLE=%APPDATA%\npm\phantomjs.exe
 %~dp0\node_modules\casperjs\bin\casperjs %*
 ````
