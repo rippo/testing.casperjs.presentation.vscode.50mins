@@ -15,19 +15,25 @@
     <h2>Results: @Model.Results.Count</h2>
     <table id="results" class="table table-bordered table-condensed table-hover table-striped">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Results)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                </tr>
-            }
+        @foreach (var item in Model.Results)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+            </tr>
+        }
         </tbody>
     </table>
+}
+else if (Model.Query != null)
+{
+    <div id="noResults" class="alert alert-warning">
+        <h2>Sorry no results could be found!</h2>
+    </div>
 }
